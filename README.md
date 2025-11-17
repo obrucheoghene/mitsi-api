@@ -1,98 +1,92 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Mitsi: Open-Source Video Conferencing
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Welcome to **Mitsi**, a modern, open-source video conferencing platform powered by [mediasoup](https://mediasoup.org). Inspired by Jitsi, Mitsi delivers low-latency, scalable video and audio calls, screen sharing, and real-time chat using WebRTC. Built with a microservices architecture, Mitsi is designed for extensibility, ease of deployment, and community contributions.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Why Mitsi?
 
-## Description
+- **Scalable**: Leverages mediasoup’s Selective Forwarding Unit (SFU) for efficient media routing.
+- **Modular**: Separate repositories for each microservice ensure independent development and deployment.
+- **Developer-Friendly**: Built with TypeScript, Node.js, and React, with clear documentation and tools like npm, ESLint, Prettier, and Jest.
+- **Open-Source**: Licensed under the MIT License to encourage adoption and contributions.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Repositories
 
-## Project setup
+Mitsi is organized into separate GitHub repositories under the [softhon](https://github.com/softhon) organization:
 
-```bash
-$ npm install
-```
+- **[mitsi-web](https://github.com/softhon/mitsi-web)**: Mitsi web client - react base web application for mitsi.
+- **[mitsi-mobile](https://github.com/softhon/mitsi-mobile)**: Mitsi mobile app - react native application for mitsi.
+- **[mitsi-signaling](https://github.com/softhon/mitsi-signaling)**: Mitsi Signaling Service for manage peer connections and room coordination.
+- **[mitsi-media](https://github.com/softhon/mitsi-media)**: Mitsi media service powered by mediasoup for media routing.
+- **[mitsi-room-management](https://github.com/softhon/mitsi-room-management)**: Manages rooms and participants (Node.js, Express).
+- **[mitsi-api](https://github.com/softhon/mitsi-api)**: Mitsi Api service (Nest.js).
+<!-- - **[mitsi-auth](https://github.com/softhon/mitsi-auth)**: Authentication service (Node.js, JWT). -->
+- **[mitsi-recording](https://github.com/softhon/mitsi-recording)**: Media recording and storage (Node.js, S3).
+  <!-- - **[mitsi-chat](https://github.com/softhon/mitsi-chat)**: Real-time text chat (Node.js, Socket.IO). -->
+  <!-- - **[mitsi-analytics](https://github.com/softhon/mitsi-analytics)**: Usage metrics collection (Node.js, Redis). -->
+- **[mitsi-docs](https://github.com/softhon/mitsi-docs)**:Mitsi documentation - a guide for contributors and developers.
 
-## Compile and run the project
+## Getting Started
 
-```bash
-# development
-$ npm run start
+To run Mitsi locally or contribute, follow these steps:
 
-# watch mode
-$ npm run start:dev
+1. **Clone Repositories**:
 
-# production mode
-$ npm run start:prod
-```
+   ```bash
+   git clone https://github.com/softhon/mitsi-<repo>.git
+   ```
 
-## Run tests
+   Clone the desired repos (e.g., `mitsi-client`, `mitsi-signaling`, `mitsi-media`, `mitsi-room-management` for the MVP).
 
-```bash
-# unit tests
-$ npm run test
+2. **Install Prerequisites**:
+   - Node.js >= 18
+   - npm >= 9
+   - Docker (optional, for containerized deployment)
 
-# e2e tests
-$ npm run test:e2e
+3. **Set Up Locally**:
+   - Navigate to each repo and follow its `README.md` or `docs/setup.md` for specific instructions.
+   - For a full stack, use the `docker-compose.yml` in this repo:
+     ```bash
+     docker-compose up
+     ```
 
-# test coverage
-$ npm run test:cov
-```
+4. **Run Development Environment**:
+   - Example for `mitsi-signaling`:
+     ```bash
+     cd mitsi-signaling
+     npm install
+     npm run dev
+     ```
+   - Visit `http://localhost:3000` to test the signaling server.
 
-## Deployment
+5. **Explore Documentation**:
+   - Visit [mitsi.app](https://mitsi.app) (coming soon) or browse this repo’s `docs/` folder for architecture, API details, and setup guides.
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+## Architecture
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Mitsi uses a microservices architecture with separate repositories for modularity:
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+- **Client**: React app (`mitsi-client`) connects to signaling and room management services.
+- **Signaling**: WebSocket service (`mitsi-signaling`) handles peer coordination and ICE candidates.
+- **Media**: Mediasoup SFU (`mitsi-media`) routes audio/video streams.
+- **Room Management**: Tracks rooms and participants (`mitsi-room-management`).
+- **Supporting Services**: Authentication, recording, chat, and analytics in separate repos.
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+See `docs/architecture.md` for a detailed diagram and API contracts.
 
-## Resources
+## Contributing
 
-Check out a few resources that may come in handy when working with NestJS:
+We welcome contributions! To get started:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+- Browse issues in each repo, especially those tagged `good-first-issue`.
+- Join our [Discord](https://discord.gg/mitsi) (coming soon) for discussions.
 
 ## License
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Mitsi is licensed under the [MIT License](LICENSE). Each repository includes its own `LICENSE` file.
+
+## Contact
+
+- Website: [mitsi.app](https://mitsi.app) (coming soon)
+- GitHub: [softhon](https://github.com/softhon)
+- Community: Join our [Discord](https://discord.gg/mitsi) or use GitHub Discussions in each repo.
